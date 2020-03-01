@@ -27,8 +27,13 @@ public:
     ChatBot(std::string filename); // constructor WITH memory allocation
     ~ChatBot();
 
-    //// STUDENT CODE
+    //// TODO: STUDENT CODE
     ////
+    
+    ChatBot(const ChatBot& other); // copy constructor
+    ChatBot(ChatBot&& other) noexcept; // move constructor
+    ChatBot& operator=(const ChatBot& other); // copy assignment
+    ChatBot& operator=(ChatBot&& other) noexcept; // move assignment
 
     ////
     //// EOF STUDENT CODE
@@ -38,6 +43,8 @@ public:
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
     wxBitmap *GetImageHandle() { return _image; }
+    GraphNode* GetRootNode() { return _rootNode; }
+    ChatLogic* GetChatLogicHandle() { return _chatLogic; }
 
     // communication
     void ReceiveMessageFromUser(std::string message);

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "chatgui.h"
+#include <memory>
 
 // forward declarations
 class ChatBot;
@@ -13,12 +14,14 @@ class GraphNode;
 class ChatLogic
 {
 private:
-    //// STUDENT CODE
+    //// TODO: STUDENT CODE
     ////
 
     // data handles (owned)
-    std::vector<GraphNode *> _nodes;
-    std::vector<GraphEdge *> _edges;
+    // std::vector<GraphNode *> _nodes;
+    std::vector<std::unique_ptr<GraphNode>> _nodes; // no GraphNode*
+    // std::vector<GraphEdge *> _edges;
+    // std::vector<std::unique_ptr<GraphEdge>> _edges; // 由于move senmatic的资源转移，可以省略
 
     ////
     //// EOF STUDENT CODE
